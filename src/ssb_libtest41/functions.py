@@ -5,6 +5,8 @@ https://sphinxcontrib-napoleon.readthedocs.io/en/latest/example_google.html
 
 """
 
+from math import sqrt
+
 
 def example_function(number1: int, number2: int) -> str:
     """Compare two integers.
@@ -12,7 +14,6 @@ def example_function(number1: int, number2: int) -> str:
     This is merely an example function can be deleted. It is used to show and test generating
     documentation from code, type hinting, testing, and testing examples
     in the code.
-
 
     Args:
         number1: The first number.
@@ -27,9 +28,26 @@ def example_function(number1: int, number2: int) -> str:
 
         >>> example_function(1, 2)
         1 is less than 2
-
     """
     if number1 < number2:
         return f"{number1} is less than {number2}"
 
     return f"{number1} is greater than or equal to {number2}"
+
+
+def is_prime(number: int) -> bool:
+    """
+    Check if the given number is a prime number.
+
+    Arg(s):
+        number (int): The number to check.
+
+    Return(s):
+        True if the number is a prime. False otherwise.
+    """
+    if number <= 1:
+        return False
+    for i in range(2, int(sqrt(number)) + 1):
+        if number % i == 0:
+            return False
+    return True
